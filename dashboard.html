@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sekolah</title>
+    <!-- Link to FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="admin-info">
+            <h2><i class="fas fa-user-circle"></i> Admin</h2>
+            <p class="status">Online</p>
+        </div>
+        
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Siswa</a></li>
+            <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Guru</a></li>
+            <li><a href="#"><i class="fas fa-calendar"></i> Jadwal</a></li>
+            <li><a href="#"><i class="fas fa-bullhorn"></i> Pengumuman</a></li>
+        </ul>
+        <!-- Menu Logout -->
+        <div class="logout">
+            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <header>
+            <h1>Selamat Datang di Dashboard</h1>
+        </header>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="stat-item">
+                <h3>Jumlah Siswa</h3>
+                <p>1200</p>
+            </div>
+            <div class="stat-item">
+                <h3>Jumlah Guru</h3>
+                <p>100</p>
+            </div>
+            <div class="stat-item">
+                <h3>Jadwal Pelajaran</h3>
+                <p>Lihat Jadwal</p>
+            </div>
+            <div class="stat-item">
+                <h3>Pengumuman</h3>
+                <p>2 Pengumuman Baru</p>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="chart-container">
+            <canvas id="schoolChart"></canvas>
+        </div>
+    </div>
+
+    <!-- JavaScript to create the chart -->
+    <script>
+        var ctx = document.getElementById('schoolChart').getContext('2d');
+        var schoolChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Siswa', 'Guru', 'Jadwal'],
+                datasets: [{
+                    label: 'Jumlah Data',
+                    data: [1200, 80, 50],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
